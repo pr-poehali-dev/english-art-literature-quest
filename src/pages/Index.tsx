@@ -80,7 +80,7 @@ const Index = () => {
               </h1>
             </div>
             <div className="hidden md:flex gap-2">
-              {['home', 'intro', 'tasks', 'resources', 'results'].map((section) => (
+              {['home', 'tasks', 'resources', 'results'].map((section) => (
                 <Button
                   key={section}
                   variant={currentSection === section ? 'default' : 'ghost'}
@@ -88,7 +88,6 @@ const Index = () => {
                   className="capitalize"
                 >
                   {section === 'home' && <Icon name="Home" size={16} className="mr-2" />}
-                  {section === 'intro' && <Icon name="Info" size={16} className="mr-2" />}
                   {section === 'tasks' && <Icon name="CheckSquare" size={16} className="mr-2" />}
                   {section === 'resources' && <Icon name="Library" size={16} className="mr-2" />}
                   {section === 'results' && <Icon name="Trophy" size={16} className="mr-2" />}
@@ -116,7 +115,7 @@ const Index = () => {
                 <div className="flex gap-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
                   <Button 
                     size="lg" 
-                    onClick={() => setCurrentSection('intro')}
+                    onClick={() => setCurrentSection('tasks')}
                     className="bg-white text-purple-600 hover:bg-purple-50"
                   >
                     Start Quest
@@ -201,102 +200,7 @@ const Index = () => {
           </div>
         )}
 
-        {currentSection === 'intro' && (
-          <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-            <Card className="border-2 border-purple-200">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                    <Icon name="Lightbulb" className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <CardTitle className="text-3xl">Welcome to Your Quest!</CardTitle>
-                    <CardDescription>Introduction and Guidelines</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-3 text-purple-600">What is a WebQuest?</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    A WebQuest is an interactive learning activity that uses the internet as a resource. 
-                    You'll explore various websites, complete tasks, and develop your English language skills 
-                    while learning about art and literature from different cultures and time periods.
-                  </p>
-                </div>
 
-                <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2 text-blue-700">
-                    <Icon name="Sparkles" size={20} />
-                    Quest Objectives
-                  </h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">1</div>
-                      <span>Learn vocabulary related to art movements, painting techniques, and literary terms</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">2</div>
-                      <span>Analyze famous artworks and literary texts in English</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">3</div>
-                      <span>Practice reading comprehension through authentic materials</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">4</div>
-                      <span>Develop critical thinking skills by comparing and contrasting works</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="rules">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      <div className="flex items-center gap-2">
-                        <Icon name="BookMarked" size={20} />
-                        Quest Rules & Guidelines
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="space-y-3 text-muted-foreground">
-                      <p>• Complete tasks in any order, but we recommend following the sequence</p>
-                      <p>• Take your time to explore the resources and materials provided</p>
-                      <p>• Use a dictionary or online translator when needed</p>
-                      <p>• All answers should be in English</p>
-                      <p>• You can save your progress and return later</p>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="assessment">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      <div className="flex items-center gap-2">
-                        <Icon name="GraduationCap" size={20} />
-                        Assessment Criteria
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="space-y-3 text-muted-foreground">
-                      <p>• Accuracy of answers (40%)</p>
-                      <p>• Use of appropriate vocabulary (25%)</p>
-                      <p>• Critical thinking and analysis (20%)</p>
-                      <p>• Completeness of tasks (15%)</p>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-
-                <div className="flex justify-between items-center pt-4">
-                  <Button variant="outline" onClick={() => setCurrentSection('home')}>
-                    <Icon name="ArrowLeft" size={16} className="mr-2" />
-                    Back to Home
-                  </Button>
-                  <Button onClick={() => setCurrentSection('tasks')} className="bg-gradient-to-r from-purple-600 to-blue-600">
-                    Start Tasks
-                    <Icon name="ArrowRight" size={16} className="ml-2" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
 
         {currentSection === 'tasks' && (
           <div className="max-w-5xl mx-auto space-y-6 animate-fade-in">
